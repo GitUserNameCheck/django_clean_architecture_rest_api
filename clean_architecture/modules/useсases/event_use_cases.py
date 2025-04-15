@@ -13,7 +13,7 @@ class EventUseCases:
         return self.event_repository.save(event)
 
     def delete_event(self, event_id: any):
-        return self.event_repository.delete(event_id)
+        self.event_repository.delete(event_id)
 
     def update_event(self, updated_event: Event) -> Event:
         event = self.event_repository.get(updated_event.id)
@@ -23,7 +23,10 @@ class EventUseCases:
             raise ValueError("An event is already scheduled at this location during the specified time.")
         return self.event_repository.save(updated_event)
 
-    def view_events(self, **kwargs) -> List[Event]:
+    def get_event(self, event_id: any) -> Event:
+        return self.event_repository.get(event_id)
+
+    def get_events(self, **kwargs) -> List[Event]:
         return self.event_repository.get_all(**kwargs)
 
     def _is_event_conflict(self, location: Location, event_start: datetime, event_end: datetime, event_id: Optional[any] = None) -> bool:

@@ -12,13 +12,13 @@ class EventRepository:
     def save(self, event: Event) -> Event:
         return self.data_base_repository.save(event)
 
-    def get(self, event_id: int) -> Event:
+    def get(self, event_id: any) -> Event:
         return self.data_base_repository.get(event_id)
 
-    def delete(self, event: int) -> None:
-        return self.data_base_repository.delete(event)
+    def delete(self, event_id: any):
+        self.data_base_repository.delete(event_id)
 
-    def get_all(self, **kwargs) -> List[Event]:
+    def get_all(self, **kwargs):
         return self.data_base_repository.get_all(**kwargs)
 
     def get_by_location_and_time(self, location: Location, event_start: datetime, event_end: datetime, event_id: Optional[int] = None) -> List[Event]:

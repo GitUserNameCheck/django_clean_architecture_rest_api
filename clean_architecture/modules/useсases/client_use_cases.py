@@ -11,7 +11,7 @@ class ClientUseCases:
         return self.client_repository.save(client)
 
     def delete_client(self, client_id: any):
-        return self.client_repository.delete(client_id)
+        self.client_repository.delete(client_id)
 
     def update_client(self, updated_client: Client) -> Client:
         client = self.client_repository.get(updated_client.id)
@@ -19,5 +19,8 @@ class ClientUseCases:
             raise ValueError(f"Client with id {updated_client.id} not found.")
         return self.client_repository.save(updated_client)
 
-    def view_clients(self, **kwargs) -> List[Client]:
+    def get_client(self, client_id: any) -> Client:
+        return self.client_repository.get(client_id)
+
+    def get_clients(self, **kwargs) -> List[Client]:
         return self.client_repository.get_all(**kwargs)

@@ -103,7 +103,7 @@ DATABASES = {
 #     }
 # }
 
-DATABASE_ROUTERS = ['clean_architecture.infrastructure.routers.DatabaseRouter']
+DATABASE_ROUTERS = ['clean_architecture.modules.infrastructure.routers.DatabaseRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

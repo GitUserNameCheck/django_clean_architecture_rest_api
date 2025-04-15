@@ -11,7 +11,7 @@ class ServiceEmployeeUseCases:
         return self.service_employee_repository.save(service_employee)
 
     def delete_service_employee(self, service_employee_id: any):
-        return self.service_employee_repository.delete(service_employee_id)
+        self.service_employee_repository.delete(service_employee_id)
 
     def update_service_employee(self, updated_service_employee: ServiceEmployee) -> ServiceEmployee:
         service_employee = self.service_employee_repository.get(updated_service_employee.id)
@@ -19,5 +19,8 @@ class ServiceEmployeeUseCases:
             raise ValueError(f"ServiceEmployee with id {updated_service_employee.id} not found.")
         return self.service_employee_repository.save(updated_service_employee)
 
-    def view_service_employees(self, **kwargs) -> List[ServiceEmployee]:
+    def get_service_employee(self, service_employee_id: any) -> ServiceEmployee:
+        return self.service_employee_repository.get(service_employee_id)
+
+    def get_service_employees(self, **kwargs) -> List[ServiceEmployee]:
         return self.service_employee_repository.get_all(**kwargs)

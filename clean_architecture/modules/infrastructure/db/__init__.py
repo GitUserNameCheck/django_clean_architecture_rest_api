@@ -5,4 +5,3 @@ from .Client import Client
 from .Employee import Employee
 from .Event import Event
 from .ServiceEmployee import ServiceEmployee
-from .EventServiceEmployee import EventServiceEmployee

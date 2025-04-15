@@ -11,7 +11,7 @@ class LocationUseCases:
         return self.location_repository.save(location)
 
     def delete_location(self, location_id: any):
-        return self.location_repository.delete(location_id)
+        self.location_repository.delete(location_id)
 
     def update_location(self, updated_location: Location) -> Location:
         location = self.location_repository.get(updated_location.id)
@@ -19,5 +19,8 @@ class LocationUseCases:
             raise ValueError(f"Location with id {updated_location.id} not found.")
         return self.location_repository.save(updated_location)
 
-    def view_locations(self, **kwargs) -> List[Location]:
+    def get_location(self, location_id: any) -> Location:
+        return self.location_repository.get(location_id)
+
+    def get_locations(self, **kwargs) -> List[Location]:
         return self.location_repository.get_all(**kwargs)
