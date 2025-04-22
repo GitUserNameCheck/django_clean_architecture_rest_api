@@ -21,6 +21,7 @@ from clean_architecture.modules.infrastructure.api.location_api import LocationV
 from clean_architecture.modules.infrastructure.api.employee_api import EmployeeViewSet
 from clean_architecture.modules.infrastructure.api.service_api import ServiceViewSet
 from clean_architecture.modules.infrastructure.api.service_employee_api import ServiceEmployeeViewSet
+from clean_architecture.modules.infrastructure.api.event_api import EventViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -29,6 +30,7 @@ router.register(r'locations', LocationViewSet, basename='location')
 router.register(r'employees', EmployeeViewSet, basename='employee')
 router.register(r'services', ServiceViewSet, basename='service')
 router.register(r'service_employees', ServiceEmployeeViewSet, basename='service_employee')
+router.register(r'events', EventViewSet, basename='event')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

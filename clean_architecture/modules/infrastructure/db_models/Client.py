@@ -1,6 +1,5 @@
 from django.db import models
-from django_mongodb_backend.fields import ArrayField
-from django_mongodb_backend.fields import ObjectIdField
+from django_mongodb_backend.fields import ObjectIdField, ArrayField
 
 class Client(models.Model):
     _id = ObjectIdField(primary_key=True)

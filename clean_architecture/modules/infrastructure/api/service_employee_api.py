@@ -1,6 +1,8 @@
 import bson
 from rest_framework.response import Response
 from clean_architecture.modules.entities.ServiceEmployee import ServiceEmployee as ServiceEmployeeEntity
+from clean_architecture.modules.entities.Employee import Employee as EmployeeEntity
+from clean_architecture.modules.entities.Service import Service as ServiceEntity
 from clean_architecture.modules.infrastructure.db_repo.service_employee_db_repository import ServiceEmployeeDbRepository
 from clean_architecture.modules.usecases.repositories.service_employee_repository import ServiceEmployeeRepository
 from clean_architecture.modules.interface.controllers.service_employee_controller import ServiceEmployeeController
@@ -63,8 +65,8 @@ class ServiceEmployeeViewSet(viewsets.ViewSet):
             data = serializer.validated_data
             service_employee = ServiceEmployeeEntity(
                 id=None,
-                employee=data.get("employee"),
-                service=data.get("service")
+                employee=EmployeeEntity(id=data["employee"]["id"], name=data["employee"]["name"]),
+                service=ServiceEntity(id=data["service"]["id"], price=data["service"]["price"], description=data["service"]["description"])
             )
             result = service_employee_controller.create_service_employee(service_employee)
             return Response(ServiceEmployeeSerializer(result).data, status=status.HTTP_200_OK)
@@ -76,8 +78,8 @@ class ServiceEmployeeViewSet(viewsets.ViewSet):
             data = serializer.validated_data
             service_employee = ServiceEmployeeEntity(
                 id=pk,
-                employee=data.get("employee"),
-                service=data.get("service")
+                employee=EmployeeEntity(id=data["employee"]["id"], name=data["employee"]["name"]),
+                service=ServiceEntity(id=data["service"]["id"], price=data["service"]["price"], description=data["service"]["description"])
             )
             try:
                 result = service_employee_controller.update_service_employee(service_employee)

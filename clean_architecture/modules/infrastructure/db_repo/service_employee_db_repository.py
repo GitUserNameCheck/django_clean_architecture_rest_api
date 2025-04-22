@@ -7,14 +7,13 @@ from bson import ObjectId
 
 class ServiceEmployeeDbRepository:
     def save(self, service_employee: ServiceEmployeeEntity) -> ServiceEmployeeEntity:
-        print(service_employee.employee)
         service_employee_model, _ = ServiceEmployeeModel.objects.update_or_create(
             _id=ObjectId(service_employee.id),
-            defaults={"employee": EmployeeModel(id=service_employee.employee["id"], 
-                                                name=service_employee.employee["name"]), 
-                      "service": ServiceModel(service_employee.service["id"],
-                                              price=service_employee.service["price"],
-                                              description=service_employee.service["description"]),
+            defaults={"employee": EmployeeModel(id=service_employee.employee.id, 
+                                                name=service_employee.employee.name), 
+                      "service": ServiceModel(service_employee.service.id,
+                                              price=service_employee.service.price,
+                                              description=service_employee.service.description),
                     }
         )
         service_employee.id = service_employee_model._id
