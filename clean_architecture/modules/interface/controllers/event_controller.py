@@ -1,4 +1,4 @@
-from clean_architecture.modules.useсases.event_use_cases import EventUseCases
+from clean_architecture.modules.usecases.event_use_cases import EventUseCases
 from clean_architecture.modules.entities import Event
 
 

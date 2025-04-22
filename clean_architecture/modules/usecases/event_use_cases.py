@@ -2,10 +2,11 @@ from typing import List, Optional
 from datetime import datetime
 from dataclasses import dataclass
 from clean_architecture.modules.entities import Location, Event
+from clean_architecture.modules.usecases.repositories.event_repository import EventRepository
 
 @dataclass
 class EventUseCases:
-    event_repository: object
+    event_repository: EventRepository
     
     def create_event(self, event: Event) -> Event:
         if self._is_event_conflict(event.location, event.event_start, event.event_end):

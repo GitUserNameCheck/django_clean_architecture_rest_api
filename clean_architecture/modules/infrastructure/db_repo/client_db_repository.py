@@ -1,4 +1,4 @@
-from clean_architecture.modules.infrastructure.db.Client import Client as ClientModel
+from clean_architecture.modules.infrastructure.db_models.Client import Client as ClientModel
 from clean_architecture.modules.entities.Client import Client as ClientEntity, Event as EventProxy
 from django.core.paginator import Paginator, EmptyPage
 from bson import ObjectId

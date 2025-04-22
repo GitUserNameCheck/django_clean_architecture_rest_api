@@ -1,11 +1,11 @@
 from typing import List
 from dataclasses import dataclass
 from clean_architecture.modules.entities import Employee
-
+from clean_architecture.modules.usecases.repositories.employee_repository import EmployeeRepository
 
 @dataclass
 class EmployeeUseCases:
-    employee_repository: object
+    employee_repository: EmployeeRepository
 
     def create_employee(self, employee: Employee) -> Employee:
         return self.employee_repository.save(employee)

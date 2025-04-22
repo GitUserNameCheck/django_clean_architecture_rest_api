@@ -1,7 +1,7 @@
 from django.db import models
 from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 from django_mongodb_backend.models import EmbeddedModel
-from clean_architecture.modules.infrastructure.db import Employee, Service
+from clean_architecture.modules.infrastructure.db_models import Employee, Service
 
 class ServiceEmployee(models.Model):
     employee = EmbeddedModelField(Employee)

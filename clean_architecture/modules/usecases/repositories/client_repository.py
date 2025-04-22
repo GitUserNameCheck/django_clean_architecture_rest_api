@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import List
 from clean_architecture.modules.entities import Client
 
 

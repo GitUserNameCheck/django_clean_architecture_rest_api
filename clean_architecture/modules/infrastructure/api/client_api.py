@@ -2,9 +2,9 @@ import bson
 from rest_framework.response import Response
 from clean_architecture.modules.entities.Client import Client as ClientEntity, Event as EventProxy
 from clean_architecture.modules.infrastructure.db_repo.client_db_repository import ClientDbRepository
-from clean_architecture.modules.interface.repositories.client_repository import ClientRepository
+from clean_architecture.modules.usecases.repositories.client_repository import ClientRepository
 from clean_architecture.modules.interface.controllers.client_controller import ClientController
-from clean_architecture.modules.useсases.client_use_cases import ClientUseCases
+from clean_architecture.modules.usecases.client_use_cases import ClientUseCases
 from rest_framework import serializers
 from rest_framework import viewsets, status
 from rest_framework.response import Response

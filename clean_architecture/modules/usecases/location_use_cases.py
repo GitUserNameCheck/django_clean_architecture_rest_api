@@ -1,11 +1,11 @@
 from typing import List
 from dataclasses import dataclass
 from clean_architecture.modules.entities import Location
-
+from clean_architecture.modules.usecases.repositories.location_repository import LocationRepository
 
 @dataclass
 class LocationUseCases:
-    location_repository: object
+    location_repository: LocationRepository
 
     def create_location(self, location: Location) -> Location:
         return self.location_repository.save(location)

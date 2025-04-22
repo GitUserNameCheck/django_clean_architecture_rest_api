@@ -17,24 +17,16 @@ from django.contrib import admin
 from django.urls import include, path
 # from clean_architecture.modules.infrastructure.api.client_api import get_clients, get_client_by_id, create_client, update_client, delete_client
 from clean_architecture.modules.infrastructure.api.client_api import ClientViewSet
-from rest_framework import routers, serializers, viewsets
-from django.contrib.auth.models import User
+from clean_architecture.modules.infrastructure.api.location_api import LocationViewSet
+from clean_architecture.modules.infrastructure.api.employee_api import EmployeeViewSet
+from clean_architecture.modules.infrastructure.api.service_api import ServiceViewSet
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'clients', ClientViewSet, basename='client')
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
-router.register(r'users', UserViewSet)
+router.register(r'locations', LocationViewSet, basename='location')
+router.register(r'employees', EmployeeViewSet, basename='employee')
+router.register(r'services', ServiceViewSet, basename='service')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

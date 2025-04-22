@@ -1,11 +1,12 @@
 from typing import List
 from dataclasses import dataclass
 from clean_architecture.modules.entities import Client
+from clean_architecture.modules.usecases.repositories.client_repository import ClientRepository
 
 
 @dataclass
 class ClientUseCases:
-    client_repository: object
+    client_repository: ClientRepository
 
     def create_client(self, client: Client) -> Client:
         return self.client_repository.save(client)

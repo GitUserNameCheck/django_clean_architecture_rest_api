@@ -1,7 +1,7 @@
 from typing import List
 from dataclasses import dataclass
 from clean_architecture.modules.entities import ServiceEmployee
-
+# from clean_architecture.modules.usecases.repositories.service_employee_repository import ServiceEmployeeRepository
 
 @dataclass
 class ServiceEmployeeUseCases:

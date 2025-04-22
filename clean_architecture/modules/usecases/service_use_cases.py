@@ -1,11 +1,11 @@
 from typing import List
 from dataclasses import dataclass
 from clean_architecture.modules.entities import Service
-
+from clean_architecture.modules.usecases.repositories.service_repository import ServiceRepository
 
 @dataclass
 class ServiceUseCases:
-    service_repository: object
+    service_repository: ServiceRepository
 
     def create_service(self, service: Service) -> Service:
         return self.service_repository.save(service)

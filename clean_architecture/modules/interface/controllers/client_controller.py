@@ -1,4 +1,4 @@
-from clean_architecture.modules.useсases.client_use_cases import ClientUseCases
+from clean_architecture.modules.usecases.client_use_cases import ClientUseCases
 from clean_architecture.modules.entities import Client
 
 

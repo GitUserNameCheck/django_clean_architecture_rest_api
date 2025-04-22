@@ -1,7 +1,7 @@
 from django.db import models
 from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 from django_mongodb_backend.models import EmbeddedModel
-from clean_architecture.modules.infrastructure.db import Location
+from clean_architecture.modules.infrastructure.db_models import Location
 
 class ClientProxy(EmbeddedModel):
     name = models.CharField(max_length=500, db_collation='Cyrillic_General_CI_AS', blank=True, null=True)

@@ -1,5 +1,5 @@
 from typing import List, Optional
-from clean_architecture.modules.infrastructure.db import Location, Client, Event
+from clean_architecture.modules.infrastructure.db_models import Location, Client, Event
 from django.core.paginator import Paginator, EmptyPage
 from datetime import datetime
 
