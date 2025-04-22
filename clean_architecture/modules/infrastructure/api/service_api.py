@@ -13,7 +13,7 @@ import bson
 
 
 class ServiceSerializer(serializers.Serializer):
-    id = serializers.CharField(required=False, allow_null=True)
+    id = serializers.IntegerField(required=False, allow_null=True)
     price = serializers.IntegerField()
     description = serializers.CharField()
 

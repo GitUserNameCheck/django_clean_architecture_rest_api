@@ -1,9 +1,11 @@
 from django.db import models
 from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 from django_mongodb_backend.models import EmbeddedModel
+from django_mongodb_backend.fields import ObjectIdField
 from clean_architecture.modules.infrastructure.db_models import Employee, Service
 
 class ServiceEmployee(models.Model):
+    _id = ObjectIdField(primary_key=True)
     employee = EmbeddedModelField(Employee)
     service = EmbeddedModelField(Service)
 

@@ -13,7 +13,7 @@ import bson
 
 
 class EmployeeSerializer(serializers.Serializer):
-    id = serializers.CharField(required=False, allow_null=True)
+    id = serializers.IntegerField(required=False, allow_null=True)
     name = serializers.CharField()
 
 
