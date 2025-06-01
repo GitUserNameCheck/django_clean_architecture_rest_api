@@ -11,7 +11,7 @@ class ServiceEmployeeDbRepository:
             _id=ObjectId(service_employee.id),
             defaults={"employee": EmployeeModel(id=service_employee.employee.id, 
                                                 name=service_employee.employee.name), 
-                      "service": ServiceModel(service_employee.service.id,
+                      "service": ServiceModel(id=service_employee.service.id,
                                               price=service_employee.service.price,
                                               description=service_employee.service.description),
                     }
